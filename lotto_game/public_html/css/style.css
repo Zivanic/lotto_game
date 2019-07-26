@@ -1,0 +1,51 @@
+/*-------------wrapper styles------------*/
+.number-wrapper,
+.selected-num-wrapper,
+.settings-wrapper,
+.drow-wrapper,
+.number-wrapper{
+    border: 2px solid #65686f;
+    margin: 2px;
+    padding: 5px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+/*-------------end of wrapper styles------------*/
+
+/*-----style for numbers in selet panel----------*/
+
+.number-wrapper .number-holder{
+    background: #497084;
+    border-right: 1px solid #737e84;
+    border-bottom: 1px solid #737e84;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 10%;
+    height: 50px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+}
+.number-wrapper .number-holder:hover{
+    font-size: 17px;
+    color: #86b6d0;
+}
+.number-wrapper .number-holder.active{
+    color: #737e84;
+}
+
+/*-----end style for numbers in selet panel----------*/
+
+#addTicket{
+    color: #65686f;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+#addTicket:focus{
+   outline: none;
+}
