@@ -1,3 +1,9 @@
+*{
+    font-family: 'Roboto Slab', serif;
+}
+body{
+    background-color: #f0ffff;
+}
 /*-------------wrapper styles------------*/
 .number-wrapper,
 .selected-num-wrapper,

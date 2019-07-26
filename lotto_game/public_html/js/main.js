@@ -4,8 +4,8 @@ for (let i = 1; i <= 30; i++) {
     allNumbers.push(i);
 }
 let selectedNumbers = [];
-let ticketNum = 0;
-let tickets={};
+let ticketNum = 1;
+let tickets = {};
 
 //------------------------------
 
@@ -29,7 +29,7 @@ function selectNumber(el, num) {
     if (selectedNumbers.length == 5 && !el.classList.contains('active')) {//select maximum 5 numbers per ticket
         let err = 'Odabrali ste maksimalan broj brojeva na tiketu';
         trowError(err);
-        return ;
+        return;
     }
 
     if (el.classList.contains('active')) {
@@ -46,13 +46,57 @@ function selectNumber(el, num) {
 }
 
 function addTicket() {
-   if(ticketNum<5){
-       //adding ticket
-       
-   }else{
-       //all ticket are fill and game can start
-   }
+    if (ticketNum <= 5 && selectedNumbers.length > 0) {
+        //adding ticket
+        tickets['ticket_' + ticketNum] = [...selectedNumbers];
+        selectedNumbers.length = 0;
+        let numbers = document.querySelectorAll('.number-holder');
+        numbers.forEach(num => {
+            num.classList.remove('active');
+        })
+        addCompletedTicket(ticketNum);//put ticket on panel for preview played ticket
+        checkForStart()//check if all tickeat are fill and game can start;
+        ticketNum++;
+
+    } else {
+        if (selectedNumbers == 0) {
+            err = 'Minimalan broj odabranih brojeva je 1;';
+            trowError(err);
+            return;
+        }
+    }
 }
+function addCompletedTicket(ticket) {//adding comleted ticket
+    if (tickets.hasOwnProperty('ticket_' + ticket)) {//check if ticket is added
+        let played = document.querySelector('.selected-num-wrapper');
+        let ticketTemplate = '<div ticket-id=ticket_'+ticket+' class="playedTicket"></div>';
+        let playedNum = tickets['ticket_' + ticket];
+        played.innerHTML += ticketTemplate;
+        let ticketWrapper = document.querySelector('[ticket-id=ticket_'+ticket+']');
+        console.log(ticketWrapper)
+        
+        playedNum.forEach(num => {
+            console.log('fisrt')
+            ticketWrapper.innerHtml += '<p>'+num+'</p>';
+            console.log(ticketWrapper)
+        });
+        console.log('second')
+        
+        
+        
+        
+        
+        
+    }
+}
+
+function checkForStart() {
+    if (ticketNum == 5) {
+        //all ticket are fill and game can start
+        console.log('start game');
+    }
+}
+
 
 function trowError(err) {
     console.log(err);
