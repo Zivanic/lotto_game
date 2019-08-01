@@ -1,57 +1,121 @@
-*{
-    font-family: 'Roboto Slab', serif;
+* {
+  font-family: "Roboto Slab", serif;
 }
-body{
-    background-color: #f0ffff;
+body {
+  background-color: #f0ffff;
+  padding-top: 10%;
 }
 /*-------------wrapper styles------------*/
 .number-wrapper,
 .selected-num-wrapper,
 .settings-wrapper,
-.drow-wrapper,
-.number-wrapper{
-    border: 2px solid #65686f;
-    margin: 2px;
-    padding: 5px;
-    display: flex;
-    flex-flow: row wrap;
+.draw-wrapper,
+.number-wrapper,
+.selected-panel {
+  border: 2px solid #65686f;
+  margin: 2px;
+  padding: 5px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.selected-num-wrapper,
+.draw-wrapper,
+.selected-panel {
+  min-height: 70px;
 }
 
+.selected-num-wrapper {
+  flex-direction: column;
+}
+.selected-num-wrapper div {
+  margin: 3px 0;
+  padding: 3px;
+  transition: 2s ease;
+  border: 2px solid transparent;
+}
 
 /*-------------end of wrapper styles------------*/
 
 /*-----style for numbers in selet panel----------*/
 
-.number-wrapper .number-holder{
-    background: #497084;
-    border-right: 1px solid #737e84;
-    border-bottom: 1px solid #737e84;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 10%;
-    height: 50px;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
+.number-wrapper .number-holder {
+  background: #497084;
+  border-right: 1px solid #737e84;
+  border-bottom: 1px solid #737e84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 10%;
+  height: 50px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
 }
-.number-wrapper .number-holder:hover{
-    font-size: 17px;
-    color: #86b6d0;
+.number-wrapper .number-holder:hover {
+  font-size: 17px;
+  color: #86b6d0;
 }
-.number-wrapper .number-holder.active{
-    color: #737e84;
+.number-wrapper .number-holder.active {
+  color: #737e84;
 }
 
 /*-----end style for numbers in selet panel----------*/
 
-#addTicket{
-    color: #65686f;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 17px;
+#addTicket {
+  color: #65686f;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 17px;
 }
-#addTicket:focus{
-   outline: none;
+#addTicket:focus {
+  outline: none;
 }
+#addTicket.play {
+  background: #09d009;
+  color: #f0ffff;
+}
+/* style for selected numbers */
+.ball,
+.winNum {
+  border: 2px solid #337ab7;
+  width: 33px;
+  height: 33px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  background: #0b3950;
+  color: azure;
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 2px;
+  margin: 3px;
+}
+
+.winNum,
+.ball.active {
+  background: #09d009;
+  transition: 1s;
+}
+.selected-num-wrapper div.win {
+  border: 2px solid #09d009;
+  border-radius: 5px;
+}
+.selected-num-wrapper div.lost {
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+}
+.selected-num-wrapper div.win::after {
+  content: "Dobitan";
+  color: #09d009;
+  font-weight: bold;
+  float: right;
+}
+.selected-num-wrapper div.lost::after {
+  content: "Gubitan";
+  color: #ff0000;
+  font-weight: bold;
+  float: right;
+}
+
+/* ------end style for selected numbers--------------------- */
