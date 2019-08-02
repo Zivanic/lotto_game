@@ -75,6 +75,7 @@ body {
   background: #09d009;
   color: #f0ffff;
 }
+
 /* style for selected numbers */
 .ball,
 .winNum {
@@ -119,3 +120,69 @@ body {
 }
 
 /* ------end style for selected numbers--------------------- */
+#bet {
+  margin: 7px 0;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.selectedNum {
+  border: 2px solid #337ab7;
+  width: 33px;
+  height: 33px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  background: #0b3950;
+  color: azure;
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 2px;
+  margin: 3px;
+}
+
+.selectedNum:hover {
+  cursor: pointer;
+  background: #ff0000;
+}
+
+.selectedNum.animated {
+  animation: slide-up 0.6s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.remove-ticket {
+  color: #65686f;
+  text-decoration: none;
+  font-size: 16px;
+}
+.remove-ticket:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.rules {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+#instructions {
+  background: rgb(73, 112, 132);
+  color: rgb(255, 255, 255);
+  padding: 5px 15px;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  z-index: 500;
+  font-size: 12px;
+  border: 3px solid #fff;
+}
